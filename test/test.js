@@ -1,3 +1,3 @@
-test('two plus two is four', () => {
+test('two plus two equals four', () => {
   expect(2 + 2).toBe(4);
 });
