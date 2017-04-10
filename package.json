@@ -4,5 +4,30 @@
   "main": "index.js",
   "repository": "git@github.com:conff/conff-api.git",
   "author": "Salim KAYABASI <salim.kayabasi@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test":"jest"
+  },
+  "jest": {
+    "testMatch": [
+      "**/(__tests__|tests|test)/**/*.js?(x)"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/coverage/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    }
+  },
+  "devDependencies": {
+    "jest": "^19.0.2"
+  }
 }
