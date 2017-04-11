@@ -1,1 +1,3 @@
-console.log('done');
+const sayHello = () => 'hello';
+
+export default sayHello;
