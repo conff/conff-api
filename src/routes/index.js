@@ -1,6 +1,7 @@
 import config from 'config';
 import { Router } from 'express';
 import log4js from 'log4js';
+import mongoose from 'mongoose';
 import createError from 'http-errors';
 import { StatusCodeError } from 'request-promise-native/errors';
 
@@ -16,6 +17,7 @@ export default (app) => {
     logger,
     createError,
     StatusCodeError,
+    mongoose,
   };
   const gdgRouter = new GDGRouter(payload, new Router(), '/gdg');
   const errRouter = new ErrorRouter(payload);

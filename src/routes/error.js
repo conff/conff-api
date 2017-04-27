@@ -21,7 +21,8 @@ class ErrorRouter {
 
   static end(app, config, logger, StatusCodeError) {
     // noinspection JSUnusedLocalSymbols
-    app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+    // eslint-disable-next-line no-unused-vars
+    app.use((err, req, res, next) => {
       const requestId = req.requestId;
       if (!(err instanceof Error)) {
         const response = err;

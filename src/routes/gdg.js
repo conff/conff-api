@@ -1,25 +1,31 @@
 class GDGRouter {
   constructor(payload, router, path) {
-    this.app = payload.app;
-    this.path = path;
-    this.router = router;
+    Object.assign(this, {
+      ...payload,
+      path,
+      router,
+      GDG: payload.mongoose.model('GDG'),
+    });
   }
 
   init() {
-    this.router.get('/', GDGRouter.list());
-    this.router.post('/:id', GDGRouter.select());
+    this.router.get('/', this.list());
+    this.router.get('/:id', this.get());
     this.app.use(this.path, this.router);
   }
 
-  static list() {
-    return (req, res, next) => {
-      next([]);
+  list() {
+    return async (req, res, next) => {
+      const { GDG } = this;
+      next(await GDG.find().exec());
     };
   }
 
-  static select() {
-    return (req, res, next) => {
-      next(true);
+  get() {
+    return async (req, res, next) => {
+      const { GDG } = this;
+      const { id } = req.params;
+      next(await GDG.findById(id).exec());
     };
   }
 }
