@@ -4,4 +4,6 @@
 [![Build Status](https://travis-ci.org/conff/conff-api.svg?branch=master)](https://travis-ci.org/conff/conff-api)
 
 # conff-api
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/conff/conff-api.svg)](https://greenkeeper.io/)
 API for public conferences
